@@ -50,3 +50,23 @@ button:focus{
   opacity: 0;
   display: none;
 }
+.indicators{
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+.block:first-child{
+  border-radius: 8px 0 0 8px;
+}
+.block:last-child{
+  border-radius: 0 8px 8px 0;
+}
+.block{
+  width: 100%;
+  height: 16px;
+  background-color: rgb(129, 124, 49);
+}
+.block.active{
+  background-color: rgb(173, 166, 64);
+}

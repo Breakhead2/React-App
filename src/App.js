@@ -29,11 +29,19 @@ function App() {
   const [counter, setCounter] = useState(0);
   const [isEnd, setIsEnd] = useState(false);
   const [points, setPoints] = useState(0);
+  const [repeat, setRepeat] = useState([]);
+
+  const handleRepeat = () => {
+    console.log(repeat);
+    debugger;
+    setData(repeat);
+    setRepeat([]);
+  }
 
   return (
     <div className="App">
-      {!isEnd && <ExerciseComponent data={data} counter={counter} setCounter={setCounter} setIsEnd={setIsEnd} setPoints={setPoints} points={points} />}
-      {isEnd && <PopupComponent questions={data.length} points={points} />}
+      {!isEnd && <ExerciseComponent data={data} counter={counter} setCounter={setCounter} setIsEnd={setIsEnd} setPoints={setPoints} points={points} setRepeat={setRepeat} />}
+      {isEnd && <PopupComponent questions={data.length} points={points} handleRepeat={handleRepeat} setIsEnd={setIsEnd} setCounter={setCounter} repeat={repeat}/>}
     </div>
   );
 }
