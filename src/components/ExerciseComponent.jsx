@@ -5,6 +5,7 @@ const ExerciseComponent = ({ data, counter, setCounter, setIsEnd, setPoints, poi
 
     const questionArr = data[counter].value.split("()");
     const [answer, setAnswer] = useState("");
+    const [erros, setErrors] = useState(false);
 
     const handleNext = () => {
         if (counter < data.length - 1)
@@ -14,6 +15,7 @@ const ExerciseComponent = ({ data, counter, setCounter, setIsEnd, setPoints, poi
                 button.classList.remove("correct");
             }
             setCounter(counter+1);
+            setErrors(false);
             setAnswer("");
         }else{
             setIsEnd(true);
@@ -24,8 +26,9 @@ const ExerciseComponent = ({ data, counter, setCounter, setIsEnd, setPoints, poi
         e.preventDefault();
         if(e.target.value === data[counter].correct_answer){
             setAnswer(e.target.value);
-            setPoints(points + 1);
-    
+            if (!erros){
+                setPoints(points + 1);
+            }
             let wrongButtons = document.querySelectorAll('.wrong');
             for(let button of wrongButtons){
                 button.classList.remove('wrong');
@@ -35,6 +38,7 @@ const ExerciseComponent = ({ data, counter, setCounter, setIsEnd, setPoints, poi
             setTimeout(handleNext, 1000);
         } else {
             e.target.classList.add("wrong");
+            setErrors(true);
         }
     }
 
