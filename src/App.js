@@ -32,16 +32,16 @@ function App() {
   const [repeat, setRepeat] = useState([]);
 
   const handleRepeat = () => {
-    console.log(repeat);
-    debugger;
-    setData(repeat);
-    setRepeat([]);
+    setIsEnd(false);
+    setCounter(0);
+    setPoints(0);
   }
+
 
   return (
     <div className="App">
       {!isEnd && <ExerciseComponent data={data} counter={counter} setCounter={setCounter} setIsEnd={setIsEnd} setPoints={setPoints} points={points} setRepeat={setRepeat} />}
-      {isEnd && <PopupComponent questions={data.length} points={points} handleRepeat={handleRepeat} setIsEnd={setIsEnd} setCounter={setCounter} repeat={repeat}/>}
+      {isEnd && <PopupComponent questions={data.length} points={points} handleRepeat={handleRepeat} repeat={repeat}/> }
     </div>
   );
 }
