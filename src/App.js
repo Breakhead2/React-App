@@ -1,23 +1,35 @@
-import logo from './logo.svg';
+import ExerciseComponent from './components/ExerciseComponent';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+  const questions = [
+    {
+    id: 1,
+    value: "I () glad to see you",
+    answers: ["are", "is", "am"],
+    correct_answer: "am",
+    },
+    {
+    id: 2,
+    value: "You () our best friend",
+    answers: ["are", "is", "am"],
+    correct_answer: "are",
+    },
+    {
+    id: 3,
+    value: "He () an execellent driver",
+    answers: ["are", "is", "am"],
+    correct_answer: "is",
+    },
+  ];
+
+  const [data, setData] = useState(questions);
+  const [counter, setCounter] = useState(0);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ExerciseComponent data={data} counter={counter} setCounter={setCounter} />
     </div>
   );
 }
