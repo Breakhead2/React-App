@@ -39,7 +39,7 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div className="Exercise">
       {!isEnd && <ExerciseComponent data={data} counter={counter} setCounter={setCounter} setIsEnd={setIsEnd} setPoints={setPoints} points={points} setRepeat={setRepeat} />}
       {isEnd && <PopupComponent questions={data.length} points={points} handleRepeat={handleRepeat} repeat={repeat}/> }
     </div>
